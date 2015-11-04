@@ -77,6 +77,6 @@ defmodule Exq.Worker.Server do
     dispatch_work(worker_module, :perform, args)
   end
   def dispatch_work(worker_module, method, args) do
-    :erlang.apply(String.to_atom("Elixir.#{worker_module}"), method, args)
+    apply(String.to_atom("Elixir.#{worker_module}"), method, args)
   end
 end
